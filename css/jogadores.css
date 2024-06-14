@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+}
+
+header {
+    background-color: #969696;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+}
+.filter{
+    background-color: white;
+    color: black;
+    border-radius: 100px;
+    font-size: 16px;
+    padding-block: 10px;
+    padding-inline: 20px;
+    border: #333 solid 2px;
+}
+
+.active{
+    background-color: black;
+    color: white;
+}
+
+.card {
+    border: 6px solid white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(172, 172, 172);
+    background-size: cover;
+    height: 300px;
+    width: 200px;
+    transition: transform 0.3s ease, top 0.3s ease, right 0.3s ease;
+    position: relative;
+  }
+  
+  .card:hover {
+    cursor: pointer;
+    transform: translateY(-20px);
+    
+  }
+  
+  
+  
+
+  .card_content{
+    background-color: black;
+    height: 100%;
+    width: 100%;
+  }
+  
+  
+
+  #player_list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    row-gap: 40px;
+  }
+
+  
+  
+  
+  @media screen and (max-width: 1024px) {
+    #player_list {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      row-gap: 40px;
+    }
+  
+    h2 {
+      font-size: 1.5em;
+    }
+  
+    .card_title {
+      font-size: 1.25em;
+    }
+  
+    .card_subtitle {
+      font-size: 1em;
+    }
+  
+    .card {
+      height: 265px;
+      width: 185px;
+    }
+  
+    .card_actions {
+      height: 27px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    #player_list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      row-gap: 40px;
+    }
+  
+    h2 {
+      font-size: 1.5em;
+    }
+  
+    .card_title {
+      font-size: 1em;
+    }
+  
+    .card_subtitle {
+      font-size: 0.7em;
+    }
+  
+    .card {
+      height: 212px;
+      width: 148px;
+    }
+  
+    .card_actions {
+      height: 20px;
+    }
+  }
