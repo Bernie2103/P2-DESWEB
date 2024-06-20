@@ -3,6 +3,9 @@ if(sessionStorage.getItem("isLogged") !== "T"){
     window.location.href = "index.html";
 }
 
+
+let players = []
+
 const createCard = (playerData, 
     targetContainer) => {
     const cardContainer = document.createElement("div");
@@ -24,6 +27,32 @@ const createCard = (playerData,
     targetContainer.appendChild(cardContainer);
 }
 
+const filterInput = document.getElementById("filter-input");
+filterInput.addEventListener('input', (e)=>{
+    filteredData = filterPlayer(e.target.value)
+    update(filteredData)
+})
+
+
+
+const filterPlayer = (value) => {
+    const filteredData = players.filter((player) => {
+        return player.nome.toLowerCase().includes(value.toLowerCase()) || player.posicao.toLowerCase().includes(value.toLowerCase())
+        });
+    
+        return filteredData
+    
+}
+
+const update = (data)=>{
+    const targetContainer = document.getElementById("player_list");
+
+    targetContainer.innerHTML = '';
+
+    data.forEach(playerData => {
+        createCard(playerData, targetContainer);
+    });
+}
 
 
 const updatePlayerList = (endPoint) => {
@@ -31,15 +60,8 @@ const updatePlayerList = (endPoint) => {
 
     fetch(url)
         .then(response => response.json()).then(data => {
-            const targetContainer = document.getElementById("player_list");
-            console.log(targetContainer)
-            targetContainer.innerHTML = '';
-
-            data.forEach(playerData => {
-                createCard(playerData, targetContainer);
-
-
-            });
+            players = data
+            update(data)
         })
         .catch(error => {
             console.error('Erro ao buscar no endPoint:', error);

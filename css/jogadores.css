@@ -12,6 +12,20 @@ header {
     text-align: center;
     width: 100%;
 }
+
+#search{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+input {
+  width: 300px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
 .filter{
     background-color: white;
     color: black;
